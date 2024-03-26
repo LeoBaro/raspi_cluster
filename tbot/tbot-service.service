@@ -1,0 +1,13 @@
+[Unit]
+Description=Telegram bot
+
+[Service]
+User=pi4
+WorkingDirectory=/home/pi4/Workspace/raspi_cluster/tbot
+ExecStart=/home/pi4/Workspace/tbot-env/bin/python3 main.py -t /home/pi4/Workspace/raspi_cluster/secrets/telegram_token 
+# optional items below
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

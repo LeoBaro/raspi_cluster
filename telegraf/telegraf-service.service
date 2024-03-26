@@ -1,0 +1,13 @@
+[Unit]
+Description=Telegraf service to stream monitoring data
+
+[Service]
+User=pi4
+WorkingDirectory=/home/pi4/Workspace/raspi_cluster/telegraf
+ExecStart=/bin/bash -c 'source /home/pi4/Workspace/raspi_cluster/telegraf/influx-config && telegraf --config /home/pi4/Workspace/raspi_cluster/telegraf/telegraf_config.yml'
+# optional items below
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
